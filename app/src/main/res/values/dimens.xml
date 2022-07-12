@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="big_textsize">40sp</dimen>
+    <dimen name="endpadding">140dp</dimen>
+    <dimen name="big_text">40sp</dimen>
+    <dimen name="vertical_padding">8dp</dimen>
+    <dimen name="width">110dp</dimen>
+    <dimen name="middle">24sp</dimen>
+    <dimen name="themesize">32sp</dimen>
+    <dimen name="marginhor">16dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="square_button">40dp</dimen>
+    <dimen name="intents_size">36sp</dimen>
+    <dimen name="margintop">28dp</dimen>
+    <dimen name="send_size">28sp</dimen>
+</resources>

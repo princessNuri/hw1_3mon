@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lesson_1_third</string>
+    <string name="mail">Mail</string>
+    <string name="geektech_gmail_com">application@gmail.com</string>
+    <string name="to">To</string>
+    <string name="toemail" />
+    <string name="enter_theme">Enter theme</string>
+    <string name="enter_message">Enter message</string>
+    <string name="from">From</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="next">NEXT</string>
+    <string name="send">SEND</string>
+    <string name="intents">Intents</string>
+    <string name="message">Enter message</string>
+    <string name="theme">Enter theme</string>
+    <string name="enter_e_mail">Enter e-mail</string>
+</resources>
