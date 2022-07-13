@@ -3,10 +3,12 @@ package com.example.lesson_1_third;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static String intentMail = "mail";
@@ -23,24 +25,31 @@ public class MainActivity extends AppCompatActivity {
         theme = findViewById(R.id.theme);
         message = findViewById(R.id.message);
         send = findViewById(R.id.btn_send);
-        next = findViewById(R.id.btn_next);
 
-        next.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(intent);
+        send.setOnClickListener(view -> {
+           //Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+            //startActivity(intent);
+
+            if (!mail.getText().toString().isEmpty()&&!theme.getText().toString().isEmpty()&&!message.getText().toString().isEmpty()){
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{mail.getText().toString()});
+                intent.putExtra(Intent.EXTRA_SUBJECT,theme.getText().toString());
+                intent.putExtra(Intent.EXTRA_TEXT,message.getText().toString());
+                //intent.setType("message/rfc822");
+                intent.setData(Uri.parse("mailto:"));
+                if(intent.resolveActivity(getPackageManager())!=null){
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(MainActivity.this,"Cannot support this action",Toast.LENGTH_SHORT).show();
+
+                }
+            }else{
+                Toast.makeText(MainActivity.this,"Fill all the fields",Toast.LENGTH_SHORT).show();
             }
+
+
+
         });
-        send.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                intent.putExtra(intentMail,mail.getText().toString());
-                intent.putExtra(intentTheme,theme.getText().toString());
-                intent.putExtra(intentMessage,message.getText().toString());
-                startActivity(intent);
-            }
-        });
+
     }
 }
